@@ -52,9 +52,19 @@
     </div>
   </header>
 
-<section>
-  <div>
-    Hello
+<section class="mx-auto max-w-5xl px-6 py-12">
+  <div class="container mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Hello</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% products.map((product) => { %>
+        <div class="p-6 border border-gray-800 rounded-xl hover:border-gray-600 transition-colors">
+          <h4 class="text-xl font-semibold"><%= product.productsTitle %></h4>
+          <p class="text-muted-foreground mt-2"><%= product.productsDescription %></p>
+          <p class="text-sm mt-4 text-emerald-400 font-bold"><%= product.productsPrice %> บาท</p>
+        </div>
+      <% }) %>
+    </div>
   </div>
 </section>
 

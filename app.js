@@ -1,37 +1,45 @@
-const express = require('express');
-const chalk = require('chalk')
-const debug = require('debug')('app');
-const morgan = require('morgan');
-const path = require('path');
+const express = require("express");
+const chalk = require("chalk");
+const debug = require("debug")("app");
+const morgan = require("morgan");
+const path = require("path");
+
 const products = require("./data/produtcs.json");
 
 const produtRouter = express.Router();
 
-const app = express();  
-const PORT = process.env.PORT || 4000;
+const app = express();
 
-app.use(morgan('combined'));
-app.use(express.static(path.join(__dirname,"/public/")));
+app.use(morgan("combined"));
 
-app.set("views","./src/views");
-app.set("view engine","ejs")
+app.use(express.static(path.join(__dirname, "public")));
 
-produtRouter.route("/").get((req,res)=>{
-    res.render("products",
-        products,
-    );
+app.set("views", path.join(__dirname, "src", "views"));
+app.set("view engine", "ejs");
+
+produtRouter.get("/", (req, res) => {
+    res.render("products", products);
 });
 
-app.use("/products",produtRouter)
+app.use("/products", produtRouter);
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
+    res.render("index", {
+        username: "BOOKZA888+",
+        customers: [
+            "kitty",
+            "picachu",
+            "doramoneiei"
+        ]
+    });
+});
 
-    res.render('index',{username: 'BOOKZA888+',customers:["kitty ","picachu","doramoneiei"]});
-})
+if (require.main === module) {
+    const PORT = process.env.PORT || 4000;
 
-app.listen(PORT,()=>{
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
 
-        debug("Listening on PORT" + chalk.red(" : "+PORT));
-
-})
-
+module.exports = app;

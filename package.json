@@ -1,12 +1,11 @@
 {
-  "name": "ep4",
+  "name": "devbook999",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "set DEBUG=app & nodemon app.js",
-    "debug": "set DEBUG=* & nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -17,14 +16,9 @@
     "debug": "^4.4.3",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
-    "morgan": "^1.11.0",
-    "nodemon": "^3.1.14"
+    "morgan": "^1.11.0"
   },
-  "nodemonConfig": {
-    "retartable": "rs",
-    "delay": 2000,
-    "env": {
-      "PORT": 3000
-    }
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

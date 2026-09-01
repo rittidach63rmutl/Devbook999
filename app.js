@@ -19,7 +19,8 @@ app.set("view engine", "ejs");
 
 produtRouter.get("/:id", (req, res) => {
     const id = req.params.id;
-    res.send("Hello world from product router with id: " + id);
+    res.render("product", {
+        products: products[id]
 });
 
 app.use("/products", produtRouter);

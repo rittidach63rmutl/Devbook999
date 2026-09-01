@@ -1,21 +1,24 @@
 {
   "products": [
     {
+      "id" : 0,
       "productsTitle": "น้ำยาล้างจาน",
       "productsDescription": "น้ำยาล้างจานสูตร 1 ดีเลิศ",
       "productsPrice": 45
     },
     {
+      "id" : 1,
       "productsTitle": "น้ำยาล้างจาน 2",
       "productsDescription": "น้ำยาล้างจานสูตร 2 ดีมาก",
       "productsPrice": 40
     },
     {
+      "id" : 2,
       "productsTitle": "น้ำยาล้างจาน 3",
       "productsDescription": "น้ำยาล้างจานสูตร 3 ดีมั้ง",
       "productsPrice": 35
     },
-    {
+    { "id" : 3,
       "productsTitle": "น้ำยาล้างจาน 4",
       "productsDescription": "น้ำยาล้างจานสูตร 4 ดีเฉยๆ",
       "productsPrice": 30

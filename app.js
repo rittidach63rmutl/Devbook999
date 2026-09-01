@@ -17,8 +17,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
-produtRouter.get("/", (req, res) => {
-    res.render("products", products);
+produtRouter.get("/:id", (req, res) => {
+    const id = req.params.id;
+    res.send("Hello world from product router with id: " + id);
 });
 
 app.use("/products", produtRouter);

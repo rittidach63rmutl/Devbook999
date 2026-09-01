@@ -17,10 +17,17 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
+produtRouter.get("/", (req, res) => {
+    res.render("products", {
+        products: products
+    });
+});
+
 produtRouter.get("/:id", (req, res) => {
     const id = req.params.id;
     res.render("product", {
-        products: products[id]
+        product: products[id]
+    });
 });
 
 app.use("/products", produtRouter);
